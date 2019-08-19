@@ -8,28 +8,23 @@
  * @return {boolean}
  */
 var isValid = function(s) {
-  const hash = {};
-  hash["("] = ")";
-  hash["["] = "]";
-  hash["{"] = "}";
-  let value = s.split("");
+  const hash = {
+    "{": "}",
+    "(": ")",
+    "[": "]"
+  };
+
   let u = [];
-  let flag = true;
-  for (let i = 0; i < value.length; i++) {
-    if (["(", "[", "{"].indexOf(value[i]) > -1) {
-      u.push(value[i]);
+  for (let index in s) {
+    if (["(", "[", "{"].indexOf(s[index]) > -1) {
+      u.push(s[index]);
+    } else if (hash[u[u.length - 1]] === s[index]) {
+      u.length--;
     } else {
-      if (hash[u[u.length - 1]] === value[i]) {
-        u.pop();
-      } else {
-        flag = false;
-      }
+      return false;
     }
   }
 
-  if (u.length !== 0) {
-    flag = false;
-  }
-  return flag;
+  return u.length === 0;
 };
-isValid("(]");
+// isValid("(]");
