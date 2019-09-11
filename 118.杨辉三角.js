@@ -47,6 +47,7 @@ var generate = function(numRows) {
     let j = 0;
     while (j <= i) {
       if (j > 0 && j < i) {
+        // 将符合条件的上一层数据进行相加
         sub.push(result[i - 1][j - 1] + result[i - 1][j]);
       } else {
         sub.push(1);
