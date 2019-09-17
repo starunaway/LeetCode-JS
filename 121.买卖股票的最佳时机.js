@@ -40,7 +40,7 @@
  * @return {number}
  */
 var maxProfit = function(prices) {
-  // 最大利润 = max(前一谈的最大利润，今天的价格-之前的最低价格)
+  // 最大利润 = max(前一天的最大利润，今天的价格-之前的最低价格)
   if (prices.length <= 1) {
     return 0;
   }
