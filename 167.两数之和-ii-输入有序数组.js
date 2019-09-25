@@ -36,30 +36,30 @@
  * @param {number} target
  * @return {number[]}
  */
-var twoSum = function(numbers, target) {
-  for (let i = 0; i < numbers.length; i++) {
-    for (let j = i + 1; j < numbers.length; j++) {
-      if (numbers[i] + numbers[j] === target) {
-        return [i + 1, j + 1];
-      }
-    }
-  }
-};
+// var twoSum = function(numbers, target) {
+//   for (let i = 0; i < numbers.length; i++) {
+//     for (let j = i + 1; j < numbers.length; j++) {
+//       if (numbers[i] + numbers[j] === target) {
+//         return [i + 1, j + 1];
+//       }
+//     }
+//   }
+// };
 
 // 可以假设每个输入只对应唯一的答案
 // 数组有序，在肯定有答案的情况下
 // 从数组两侧开始相加 超过目标则减最大值，小于目标则加最小值
-// var twoSum = function(numbers, target) {
-//   let i = 0;
-//   let j = numbers.length - 1;
-//   while (i < j) {
-//     if (numbers[i] + numbers[j] > target) {
-//       j--;
-//     } else if (numbers[i] + numbers[j] < target) {
-//       i++;
-//     } else {
-//       return [i + 1, j + 1];
-//     }
-//   }
-// };
+var twoSum = function(numbers, target) {
+  let i = 0;
+  let j = numbers.length - 1;
+  while (i < j) {
+    if (numbers[i] + numbers[j] > target) {
+      j--;
+    } else if (numbers[i] + numbers[j] < target) {
+      i++;
+    } else {
+      return [i + 1, j + 1];
+    }
+  }
+};
 // console.log(twoSum([2, 7, 11, 15], 9));
